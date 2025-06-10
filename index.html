@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Minimarket J&C - Vegetable Website Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet" />
+
+  <!-- Icon Font Stylesheet -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Spinner Start -->
+  <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Navbar start -->
+  <div class="container-fluid fixed-top">
+    <div id="topbar" class="container topbar d-none d-lg-block" style="background-color: rgb(255, 123, 0)">
+      <div class="d-flex justify-content-between">
+        <div class="top-info ps-2">
+          <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>
+            <a id="map-link" data-cy="topbar-link" target="_blank" class="text-white">Jr Huancayo 209</a></small>
+          <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i>
+            <a id="gmail-link" data-cy="topbar-link" target="_blank" class="text-white">info@tiendaeyj.com</a></small>
+        </div>
+        <div class="top-link pe-2">
+          <a href="#" data-cy="topbar-link" class="text-white"><small class="text-white mx-2">Politicas de privacidad</small>/</a>
+          <a href="#" data-cy="topbar-link" class="text-white"><small class="text-white mx-2">Terminos de uso</small>/</a>
+          <a href="#" data-cy="topbar-link" class="text-white"><small class="text-white ms-2">Ventas y Rembolsos</small></a>
+        </div>
+      </div>
+    </div>
+    <div class="container px-0">
+      <nav class="navbar navbar-light bg-white navbar-expand-xl" style="background-color: red">
+        <a id="navbar-brand" href="index.html" class="navbar-brand">
+          <h1 class="text-primary display-6" style="color: red">E&J Minimarket</h1>
+        </a>
+        <button id="navbar-toggler" class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="fa fa-bars text-primary"></span>
+        </button>
+        <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+          <div class="navbar-nav mx-auto">
+            <a href="index.html" data-cy="nav-link" class="nav-item nav-link active">Menú</a>
+            <a href="shop.html" data-cy="nav-link" class="nav-item nav-link">Tienda</a>
+            <a href="shop-detail.html" data-cy="nav-link" class="nav-item nav-link">Detalles de Tienda</a>
+            <div class="nav-item dropdown">
+              <a id="dropdown-toggle" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Paginas</a>
+              <div id="dropdown-menu" class="dropdown-menu m-0 bg-secondary rounded-0">
+                <a href="cart.html" data-cy="dropdown-item" class="dropdown-item">Carrito</a>
+                <a href="chackout.html" data-cy="dropdown-item" class="dropdown-item">Verificación</a>
+                <a href="testimonial.html" data-cy="dropdown-item" class="dropdown-item">Testimonios</a>
+              </div>
+            </div>
+            <a href="contact.html" data-cy="nav-link" class="nav-item nav-link">Contacto</a>
+          </div>
+          <div class="d-flex m-3 me-0">
+            <button id="search-btn" class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <i class="fas fa-search text-primary"></i>
+            </button>
+            <a id="cart-link" href="cart.html" class="position-relative me-4 my-auto">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <span id="cart-count" class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px">0</span>
+            </a>
+            <a id="user-info" href="login.html" class="my-auto">
+              <i class="fas fa-user fa-2x"></i>
+              <span id="usernameDisplay" style="margin-left: 8px; font-size: 16px;"></span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Navbar End -->
+
+  <!-- Modal Search Start -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div id="modal-content" class="modal-content rounded-0">
+        <div id="modal-header" class="modal-header">
+          <h5 id="modal-title" class="modal-title">Buscar por palabra clave</h5>
+          <button id="modal-close-btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="modal-body" class="modal-body d-flex align-items-center flex-column">
+          <div id="search-input-group" class="input-group w-75 mx-auto d-flex mb-3">
+            <input type="search" id="search-input" data-cy="search-input" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1" />
+            <span id="search-icon-1" data-cy="search-icon" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+          </div>
+          <select id="category-filter" data-cy="category-filter" class="form-select w-75 mb-3">
+            <option value="">Todas las categorías</option>
+            <!-- Categories will be dynamically inserted here -->
+          </select>
+          <div id="search-results" data-cy="search-results" class="w-75 mt-4" style="max-height: 400px; overflow-y: auto;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Search End -->
+
+  <!-- Hero Start -->
+  <div id="hero-header" class="container-fluid py-5 mb-5 hero-header">
+    <div class="container py-5">
+      <div id="hero-row" class="row g-5 align-items-center">
+        <div id="hero-text" class="col-md-12 col-lg-7">
+          <h4 class="mb-3 text-secondary">Productos de calidad</h4>
+          <h1 class="mb-5 display-3 text-primary">Viveres y Frutas Frescas</h1>
+        </div>
+        <div id="hero-carousel" class="col-md-12 col-lg-5">
+          <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+            <div id="carousel-inner" class="carousel-inner" role="listbox">
+              <div class="carousel-item active rounded">
+                <img src="img/hero-img-1.png" data-cy="carousel-image" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide" />
+                <a href="#" data-cy="carousel-link" class="btn px-4 py-2 text-white rounded" style="color: red">Viveres</a>
+              </div>
+              <div class="carousel-item rounded">
+                <img src="img/hero-img-2.jpg" data-cy="carousel-image" class="img-fluid w-100 h-100 rounded" alt="Second slide" />
+                <a href="#" data-cy="carousel-link" class="btn px-4 py-2 text-white rounded">Snacks</a>
+              </div>
+            </div>
+            <button id="carousel-prev" class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button id="carousel-next" class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Próximo</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hero End -->
+
+  <!-- Featurs Section Start -->
+  <div id="features-section" class="container-fluid featurs py-5">
+    <div class="container py-5">
+      <div id="features-row" class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="featurs-item text-center rounded bg-light p-4">
+            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+              <i data-cy="feature-icon" class="fas fa-car-side fa-3x text-white"></i>
+            </div>
+            <div class="featurs-content text-center">
+              <h5>Oferta envío gratis</h5>
+              <p class="mb-0">Envío gratis a partir de S/100</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="featurs-item text-center rounded bg-light p-4">
+            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+              <i data-cy="feature-icon" class="fas fa-user-shield fa-3x text-white"></i>
+            </div>
+            <div class="featurs-content text-center">
+              <h5>Seguridad</h5>
+              <p class="mb-0">Pagos 100% seguros</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="featurs-item text-center rounded bg-light p-4">
+            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+              <i data-cy="feature-icon" class="fas fa-exchange-alt fa-3x text-white"></i>
+            </div>
+            <div class="featurs-content text-center">
+              <h5>30 días de retorno</h5>
+              <p class="mb-0">Garantía de 30 días de devolución</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="featurs-item text-center rounded bg-light p-4">
+            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+              <i data-cy="feature-icon" class="fa fa-phone-alt fa-3x text-white"></i>
+            </div>
+            <div class="featurs-content text-center">
+              <h5>Contacto 24/7</h5>
+              <p class="mb-0">Soporte todo el día</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Featurs Section End -->
+
+  <!-- Fruits Shop Start-->
+  <div id="fruits-shop" class="container-fluid fruite py-5">
+    <div class="container py-5">
+      <div id="tab-class" class="tab-class text-center">
+        <div id="tab-header" class="row g-4">
+          <div id="tab-title" class="col-lg-4 text-start">
+            <h1>Productos recomendados</h1>
+          </div>
+          <div class="col-lg-8 text-end">
+            <ul id="category-tabs" data-cy="category-tabs" class="nav nav-pills d-inline-flex text-center mb-5">
+              <!-- Categories will be dynamically inserted here -->
+            </ul>
+          </div>
+        </div>
+        <div id="tab-content" class="tab-content">
+          <div id="tab-1" class="tab-pane fade show p-0 active">
+            <div id="contenedor-productos" data-cy="product-container" class="row g-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fruits Shop End-->
+
+  <!-- Fact Start -->
+  <div id="fact-section" class="container-fluid py-5">
+    <div class="container">
+      <div id="fact-container" class="bg-light p-5 rounded">
+        <div id="fact-row" class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="counter bg-white rounded p-5">
+              <i data-cy="fact-icon" class="fa fa-users text-secondary"></i>
+              <h4>Clientes Satisfechos</h4>
+              <h1>0</h1>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="counter bg-white rounded p-5">
+              <i data-cy="fact-icon" class="fa fa-users text-secondary"></i>
+              <h4>Calidad de Servicio</h4>
+              <h1>0%</h1>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="counter bg-white rounded p-5">
+              <i data-cy="fact-icon" class="fa fa-users text-secondary"></i>
+              <h4>Clientes</h4>
+              <h1>33</h1>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="counter bg-white rounded p-5">
+              <i data-cy="fact-icon" class="fa fa-users text-secondary"></i>
+              <h4>Productos disponibles</h4>
+              <h1>35</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fact End -->
+
+  <!-- Tastimonial Start -->
+  <div id="testimonial-section" class="container-fluid testimonial py-5">
+    <div class="container py-5">
+      <div id="testimonial-header" class="testimonial-header text-center">
+        <h4 class="text-primary">Testimonios</h4>
+        <h1 class="display-5 mb-5 text-dark">Lo que los clientes dicen</h1>
+      </div>
+      <div id="testimonial-carousel" class="owl-carousel testimonial-carousel">
+        <div class="testimonial-item img-border-radius bg-light rounded p-4">
+          <div class="position-relative">
+            <i data-cy="quote-icon" class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0"></i>
+            <div class="mb-4 pb-4 border-bottom border-secondary">
+              <p class="mb-0">Estoy encantada con mi experiencia en este minimarket! Desde el momento en que entré, me impresionó la limpieza y organización de la tienda.</p>
+            </div>
+            <div class="d-flex align-items-center flex-nowrap">
+              <div class="bg-secondary rounded">
+                <img src="img/testimonial-1.jpg" data-cy="testimonial-image" class="img-fluid rounded" style="width: 100px; height: 100px" alt="" />
+              </div>
+              <div class="ms-4 d-block">
+                <h4 class="text-dark">María González</h4>
+                <p class="m-0 pb-3">Nutricionista</p>
+                <div class="d-flex pe-5">
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-item img-border-radius bg-light rounded p-4">
+          <div class="position-relative">
+            <i data-cy="quote-icon" class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0"></i>
+            <div class="mb-4 pb-4 border-bottom border-secondary">
+              <p class="mb-0">Mi experiencia en este minimarket ha sido muy positiva. La tienda está bien organizada y limpia, lo que facilita encontrar lo que necesito rápidamente.</p>
+            </div>
+            <div class="d-flex align-items-center flex-nowrap">
+              <div class="bg-secondary rounded">
+                <img src="img/testimonial-2.jpg" data-cy="testimonial-image" class="img-fluid rounded" style="width: 100px; height: 100px" alt="" />
+              </div>
+              <div class="ms-4 d-block">
+                <h4 class="text-dark">Luis Martínez</h4>
+                <p class="m-0 pb-3">Chef</p>
+                <div class="d-flex pe-5">
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-item img-border-radius bg-light rounded p-4">
+          <div class="position-relative">
+            <i data-cy="quote-icon" class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0"></i>
+            <div class="mb-4 pb-4 border-bottom border-secondary">
+              <p class="mb-0">Me gusta hacer mis compras en este minimarket porque siempre encuentro lo que necesito. La tienda está bien organizada y es fácil de navegar.</p>
+            </div>
+            <div class="d-flex align-items-center flex-nowrap">
+              <div class="bg-secondary rounded">
+                <img src="img/testimonio2.jpg" data-cy="testimonial-image" class="img-fluid rounded" style="width: 100px; height: 100px" alt="" />
+              </div>
+              <div class="ms-4 d-block">
+                <h4 class="text-dark">Luis Martínez</h4>
+                <p class="m-0 pb-3">Ingeniero</p>
+                <div class="d-flex pe-5">
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                  <i data-cy="star-icon" class="fas fa-star text-primary"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Tastimonial End -->
+
+  <!-- Back to Top -->
+  <a id="back-to-top" href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+  <div id="main-content11">
+    <!-- this is for footer -->
+    <!-- Footer End -->
+    <!-- Copyright End -->
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+  <script src="js/footer.js"></script>
+
+  <!-- JavaScript for Category Filter, Cart Count, and Search -->
+  <script>
+    // Initialize username display
+    document.addEventListener('DOMContentLoaded', () => {
+      const usernameDisplay = document.getElementById('usernameDisplay');
+      if (usernameDisplay) {
+        const username = localStorage.getItem('username');
+        if (username) {
+          usernameDisplay.textContent = username;
+          // Actualizar el enlace de usuario solo si existe
+          const userInfo = document.getElementById('user-info');
+          if (userInfo) {
+            userInfo.href = 'profile.html'; // O la página de perfil adecuada
+          }
+        }
+      }
+
+      // Get usuario_id from localStorage
+      let usuario_id = localStorage.getItem('id_usuario');
+
+      // Function to fetch and display cart count
+      function updateCartCount() {
+        if (!usuario_id) {
+          const cartCount = document.getElementById('cart-count');
+          if (cartCount) {
+            cartCount.textContent = '0';
+          }
+          return;
+        }
+        fetch(`http://localhost/minemarket/api/obtener_cantidad_carrito.php?usuario_id=${usuario_id}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+              cartCount.textContent = data.cantidad || '0';
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching cart count:', error);
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+              cartCount.textContent = '0';
+            }
+          });
+      }
+
+      // Function to display products
+      function displayProducts(productos) {
+        const contenedor = document.getElementById('contenedor-productos');
+        if (contenedor) {
+          contenedor.innerHTML = ''; // Clear existing products
+
+          if (productos.length === 0) {
+            contenedor.innerHTML = '<p class="text-center text-muted">No se encontraron productos en esta categoría.</p>';
+            return;
+          }
+
+          productos.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'col-md-4';
+            card.innerHTML = `
+              <div class="border border-primary rounded position-relative vesitable-item fruite-item">
+                <div class="vesitable-img fruite-img">
+                  <img src="${p.imagen_url}" class="img-fluid w-75 rounded-top bg-light" alt="${p.nombre}" data-cy="product-image"/>
+                </div>
+                <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px" data-cy="product-category">
+                  ${p.categoria_nombre}
+                </div>
+                <div class="p-4 rounded-bottom">
+                  <h4 data-cy="product-name">${p.nombre}</h4>
+                  <p data-cy="product-description">${p.descripcion}</p>
+                  <div class="d-flex justify-content-between flex-lg-wrap">
+                    <p class="text-dark fs-5 fw-bold mb-0" data-cy="product-price">S/${parseFloat(p.precio).toFixed(2)}</p>
+                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart" data-id="${p.id}" data-cy="add-to-cart-btn">
+                      <i class="fa fa-shopping-bag me-2 text-primary"></i> Añadir al carrito
+                    </a>
+                  </div>
+                </div>
+              </div>
+            `;
+            contenedor.appendChild(card);
+          });
+        }
+      }
+
+      // Function to fetch and display categories
+      function loadCategories() {
+        fetch('http://localhost/minemarket/api/obtener_categorias.php')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(categorias => {
+            const categoryTabs = document.getElementById('category-tabs');
+            if (categoryTabs) {
+              categoryTabs.innerHTML = `
+                <li class="nav-item">
+                  <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-category-id="all" href="#tab-1" data-cy="category-tab">
+                    <span class="text-dark" style="width: 130px">Todos los productos</span>
+                  </a>
+                </li>
+              `;
+              categorias.forEach((cat, index) => {
+                const tab = document.createElement('li');
+                tab.className = 'nav-item';
+                tab.innerHTML = `
+                  <a class="d-flex m-2 py-2 bg-light rounded-pill" data-category-id="${cat.id}" href="#tab-1" data-cy="category-tab">
+                    <span class="text-dark" style="width: 130px">${cat.nombre}</span>
+                  </a>
+                `;
+                categoryTabs.appendChild(tab);
+              });
+
+              // Add click event listeners for category tabs
+              document.querySelectorAll('#category-tabs a').forEach(tab => {
+                tab.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  const categoryId = this.getAttribute('data-category-id');
+                  document.querySelectorAll('#category-tabs a').forEach(t => t.classList.remove('active'));
+                  this.classList.add('active');
+                  loadProducts(categoryId);
+                });
+              });
+
+              // Load all products initially
+              loadProducts('all');
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching categories:', error);
+            const categoryTabs = document.getElementById('category-tabs');
+            if (categoryTabs) {
+              categoryTabs.innerHTML = '<li class="nav-item"><span class="text-danger">Error al cargar categorías</span></li>';
+              loadProducts('all'); // Fallback to all products
+            }
+          });
+      }
+
+      // Function to fetch and filter products
+      function loadProducts(categoryId) {
+        fetch('http://localhost/minemarket/api/obtener_productos.php')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(productos => {
+            let filteredProductos = productos;
+            if (categoryId !== 'all') {
+              filteredProductos = productos.filter(p => p.categoria_id == categoryId);
+            }
+            displayProducts(filteredProductos);
+          })
+          .catch(error => {
+            console.error('Error fetching products:', error);
+            const contenedor = document.getElementById('contenedor-productos');
+            if (contenedor) {
+              contenedor.innerHTML = '<p class="text-center text-danger">No se pudieron cargar los productos.</p>';
+            }
+          });
+      }
+
+      // Debounce function to limit API calls
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // Function to display search results
+      function displaySearchResults(productos) {
+        const resultsContainer = document.getElementById('search-results');
+        if (resultsContainer) {
+          resultsContainer.innerHTML = ''; // Clear previous results
+
+          if (productos.length === 0) {
+            resultsContainer.innerHTML = '<p class="text-center text-muted">No se encontraron productos.</p>';
+            return;
+          }
+
+          productos.forEach(p => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'border border-primary rounded position-relative mb-3 p-3';
+            resultItem.innerHTML = `
+              <div class="d-flex align-items-center">
+                <img src="${p.imagen_url}" class="img-fluid rounded" style="width: 80px; height: 80px;" alt="${p.nombre}" data-cy="search-result-image" />
+                <div class="ms-3">
+                  <h5 data-cy="search-result-name">${p.nombre}</h5>
+                  <p class="mb-1" data-cy="search-result-description">${p.descripcion}</p>
+                  <p class="text-dark fs-5 fw-bold mb-2" data-cy="search-result-price">S/${parseFloat(p.precio).toFixed(2)}</p>
+                  <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart" data-id="${p.id}" data-cy="search-add-to-cart-btn">
+                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Añadir al carrito
+                  </a>
+                </div>
+              </div>
+            `;
+            resultsContainer.appendChild(resultItem);
+          });
+        }
+      }
+
+      // Function to fetch search results
+      function searchProducts(query, category = '') {
+        let url = `http://localhost/minemarket/api/buscar_producto.php?nombre=${encodeURIComponent(query)}`;
+        if (category) {
+          url += `&categoria=${encodeURIComponent(category)}`;
+        }
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            if (data.success) {
+              displaySearchResults(data.data);
+            } else {
+              console.error('Error from server:', data.error);
+              const searchResults = document.getElementById('search-results');
+              if (searchResults) {
+                searchResults.innerHTML = '<p class="text-center text-danger">Error al buscar productos.</p>';
+              }
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching search results:', error);
+            const searchResults = document.getElementById('search-results');
+            if (searchResults) {
+              searchResults.innerHTML = '<p class="text-center text-danger">No se pudieron cargar los productos.</p>';
+            }
+          });
+      }
+
+      // Function to load categories into dropdown
+      function loadCategoryFilter() {
+        fetch('http://localhost/minemarket/api/obtener_categorias.php')
+          .then(response => response.json())
+          .then(categorias => {
+            const categoryFilter = document.getElementById('category-filter');
+            if (categoryFilter) {
+              categorias.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat.id;
+                option.textContent = cat.nombre;
+                option.setAttribute('data-cy', 'category-option');
+                categoryFilter.appendChild(option);
+              });
+            }
+          })
+          .catch(error => console.error('Error loading categories:', error));
+      }
+
+      // Add to cart functionality
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('.add-to-cart')) {
+          e.preventDefault();
+          if (!usuario_id) {
+            alert('Por favor, inicia sesión para añadir productos al carrito.');
+            window.location.href = 'login.html';
+            return;
+          }
+          const button = e.target.closest('.add-to-cart');
+          const productoId = parseInt(button.getAttribute('data-id'));
+
+          fetch('http://localhost/minemarket/api/agregar_carrito.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              usuario_id: usuario_id,
+              producto_id: productoId,
+              cantidad: 1
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.success) {
+                alert('Producto añadido al carrito');
+                updateCartCount(); // Update cart count
+              } else {
+                alert('Error al agregar: ' + data.error);
+              }
+            })
+            .catch(err => {
+              console.error('Error de red:', err);
+              alert('Error de red al añadir al carrito.');
+            });
+        }
+      });
+
+      // Event listener for search input
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', debounce(function (e) {
+          const query = e.target.value.trim();
+          const category = document.getElementById('category-filter').value;
+          if (query.length > 2) {
+            searchProducts(query, category);
+          } else {
+            const searchResults = document.getElementById('search-results');
+            if (searchResults) {
+              searchResults.innerHTML = '';
+            }
+          }
+        }, 300));
+      }
+
+      // Event listener for search icon
+      const searchIcon = document.getElementById('search-icon-1');
+      if (searchIcon) {
+        searchIcon.addEventListener('click', function () {
+          const query = document.getElementById('search-input').value.trim();
+          const category = document.getElementById('category-filter').value;
+          if (query.length > 2) {
+            searchProducts(query, category);
+          }
+        });
+      }
+
+      // Event listener for category filter
+      const categoryFilter = document.getElementById('category-filter');
+      if (categoryFilter) {
+        categoryFilter.addEventListener('change', function () {
+          const query = document.getElementById('search-input').value.trim();
+          const category = this.value;
+          if (query.length > 2) {
+            searchProducts(query, category);
+          }
+        });
+      }
+
+      // Initialize on page load
+      loadCategories();
+      updateCartCount();
+      loadCategoryFilter();
+    });
+  </script>
+</body>
+</html>

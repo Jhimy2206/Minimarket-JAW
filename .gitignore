@@ -1,0 +1,34 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Archivos de configuración de VS Code
+.vscode/
+
+# Archivos del sistema operativo
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Node.js (si lo usas en algún momento)
+node_modules/
+
+# Archivos de entorno (si usas variables secretas)
+.env
+
+# XAMPP / MySQL runtime (no se deben subir bases en ejecución)
+xampp/
+mysql/
+
+# Compilaciones temporales
+dist/
+build/
+
+# Ignorar carpetas de respaldo
+*.bak
+*.old
+*.swp

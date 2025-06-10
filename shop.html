@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fruitables - Vegetable Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar start -->
+    <div class="container-fluid fixed-top">
+      <div
+        class="container topbar d-none d-lg-block"
+        style="background-color: rgb(255, 123, 0)"
+      >
+        <div class="d-flex justify-content-between">
+          <div class="top-info ps-2">
+            <small class="me-3"
+              ><i class="fas fa-map-marker-alt me-2 text-secondary"></i>
+              <a id="mapLink" target="_blank" class="text-white"
+                >Jr Huancayo 209</a
+              ></small
+            >
+            <small class="me-3"
+              ><i class="fas fa-envelope me-2 text-secondary"></i
+              ><a id="gmailLink" target="_blank" class="text-white"
+                >info@tiendaeyj.com</a
+              ></small
+            >
+          </div>
+          <div class="top-link pe-2">
+            <a href="#" class="text-white"
+              ><small class="text-white mx-2">Politicas de privacidad</small
+              >/</a
+            >
+            <a href="#" class="text-white"
+              ><small class="text-white mx-2">Terminos de uso</small>/</a
+            >
+            <a href="#" class="text-white"
+              ><small class="text-white ms-2">Ventas y Rembolsos</small></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="container px-0">
+        <nav
+          class="navbar navbar-light bg-white navbar-expand-xl"
+          style="background-color: red"
+        >
+          <a href="index.html" class="navbar-brand"
+            ><h1 class="text-primary display-6" style="color: red">
+              E&J Minimarket
+            </h1></a
+          >
+          <button
+            class="navbar-toggler py-2 px-3"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="fa fa-bars text-primary"></span>
+          </button>
+          <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+            <div class="navbar-nav mx-auto">
+              <a href="index.html" class="nav-item nav-link">Menú</a>
+              <a href="shop.html" class="nav-item nav-link active">Tienda</a>
+              <a href="shop-detail.html" class="nav-item nav-link"
+                >Detalles de Tienda</a
+              >
+              <div class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  >Paginas</a
+                >
+                <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                  <a href="cart.html" class="dropdown-item">Carrito</a>
+                  <a href="chackout.html" class="dropdown-item">Verificación</a>
+                  <a href="testimonial.html" class="dropdown-item"
+                    >Testimonios</a
+                  >
+                </div>
+              </div>
+              <a href="contact.html" class="nav-item nav-link">Contacto</a>
+            </div>
+            <div class="d-flex m-3 me-0">
+              <button
+                class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                data-bs-toggle="modal"
+                data-bs-target="#searchModal"
+              >
+                <i class="fas fa-search text-primary"></i>
+              </button>
+              <a href="cart.html" class="position-relative me-4 my-auto">
+                <i class="fa fa-shopping-bag fa-2x"></i>
+                <span
+                  id="cart-count"
+                  class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                  style="top: -5px; left: 15px; height: 20px; min-width: 20px"
+                  >0</span
+                >
+              </a>
+              <a href="Login.html" class="my-auto">
+                <i class="fas fa-user fa-2x"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Modal Search Start -->
+    <div
+      class="modal fade"
+      id="searchModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Buscar por palabra clave
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body d-flex align-items-center flex-column">
+            <div class="input-group w-75 mx-auto d-flex mb-3">
+              <input
+                type="search"
+                id="modal-search-input"
+                class="form-control p-3"
+                placeholder="keywords"
+                aria-describedby="modal-search-icon"
+              />
+              <span id="modal-search-icon" class="input-group-text p-3"
+                ><i class="fa fa-search"></i
+              ></span>
+            </div>
+            <select id="modal-category-filter" class="form-select w-75 mb-3">
+              <option value="">Todas las categorías</option>
+              <!-- Categories will be dynamically inserted here -->
+            </select>
+            <div id="modal-search-results" class="w-75 mt-4" style="max-height: 400px; overflow-y: auto;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Search End -->
+
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-5">
+      <h1 class="text-center text-white display-6">Tienda</h1>
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="index.html">Menú</a></li>
+        <li class="breadcrumb-item"><a href="#">Paginas</a></li>
+        <li class="breadcrumb-item active text-white">Tienda</li>
+      </ol>
+    </div>
+    <!-- Single Page Header End -->
+
+    <!-- Fruits Shop Start -->
+    <div class="container-fluid fruite py-5">
+      <div class="container py-5">
+        <h1 class="mb-4">Productos frescos 😁</h1>
+        <div class="row g-4">
+          <div class="col-lg-12">
+            <div class="row g-4">
+              <div class="col-xl-3">
+                <div class="input-group w-100 mx-auto d-flex">
+                  <input
+                    type="search"
+                    id="shop-search-input"
+                    class="form-control p-3"
+                    placeholder="keywords"
+                    aria-describedby="shop-search-icon"
+                  />
+                  <span id="shop-search-icon" class="input-group-text p-3"
+                    ><i class="fa fa-search"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="col-xl-3">
+                <select id="shop-category-filter" class="form-select">
+                  <option value="">Todas las categorías</option>
+                  <!-- Categories will be dynamically inserted here -->
+                </select>
+              </div>
+              <div class="col-6"></div>
+              <div class="col-xl-3">
+                <div
+                  class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4"
+                >
+                  <label for="fruits">Ordenar por:</label>
+                  <select
+                    id="fruits"
+                    name="fruitlist"
+                    class="border-0 form-select-sm bg-light me-3"
+                    form="fruitform"
+                  >
+                    <option value="nothing">Nada</option>
+                    <option value="popularity">Popularidad</option>
+                    <option value="organic">Orgánico</option>
+                    <option value="fantastic">Fantástico</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-lg-3">
+                <div class="row g-4">
+                  <div class="col-lg-12">
+                    <div class="mb-3">
+                      <h4>Categorías</h4>
+                      <ul class="list-unstyled fruite-categorie" id="category-list">
+                        <!-- Dynamic categories will be inserted here -->
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="mb-3">
+                      <h4 class="mb-2">Precio</h4>
+                      <input
+                        type="range"
+                        class="form-range w-100"
+                        id="rangeInput"
+                        name="rangeInput"
+                        min="0"
+                        max="500"
+                        value="0"
+                        oninput="amount.value=rangeInput.value"
+                      />
+                      <output
+                        id="amount"
+                        name="amount"
+                        min-velue="0"
+                        max-value="500"
+                        for="rangeInput"
+                        >0</output
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="mb-3">
+                      <h4>Adicional</h4>
+                      <div class="mb-2">
+                        <input
+                          type="radio"
+                          class="me-2"
+                          id="Categories-1"
+                          name="Categories-1"
+                          value="Beverages"
+                        />
+                        <label for="Categories-1"> Orgánico</label>
+                      </div>
+                      <div class="mb-2">
+                        <input
+                          type="radio"
+                          class="me-2"
+                          id="Categories-2"
+                          name="Categories-1"
+                          value="Beverages"
+                        />
+                        <label for="Categories-2"> Fresco</label>
+                      </div>
+                      <div class="mb-2">
+                        <input
+                          type="radio"
+                          class="me-2"
+                          id="Categories-3"
+                          name="Categories-1"
+                          value="Beverages"
+                        />
+                        <label for="Categories-3"> Ofertas</label>
+                      </div>
+                      <div class="mb-2">
+                        <input
+                          type="radio"
+                          class="me-2"
+                          id="Categories-4"
+                          name="Categories-1"
+                          value="Beverages"
+                        />
+                        <label for="Categories-4">Nuevos productos</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <h4 class="mb-3">Productos destacados</h4>
+                    <div
+                      class="d-flex align-items-center justify-content-start"
+                    >
+                      <div
+                        class="rounded me-4"
+                        style="width: 100px; height: 100px"
+                      >
+                        <img
+                          src="img/Paneton.jpg"
+                          class="img-fluid rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div>
+                        <h6 class="mb-2">Paneton Bimbo 900G</h6>
+                        <div class="d-flex mb-2">
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                        <div class="d-flex mb-2">
+                          <h5 class="fw-bold me-2">S/20.90</h5>
+                          <h5 class="text-danger text-decoration-line-through">
+                            S/25.90
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-start"
+                    >
+                      <div
+                        class="rounded me-4"
+                        style="width: 100px; height: 100px"
+                      >
+                        <img
+                          src="img/featur-2.jpg"
+                          class="img-fluid rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div>
+                        <h6 class="mb-2">Fresas Rojas</h6>
+                        <div class="d-flex mb-2">
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                        <div class="d-flex mb-2">
+                          <h5 class="fw-bold me-2">S/8.00</h5>
+                          <h5 class="text-danger text-decoration-line-through">
+                            S/10.00
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-start"
+                    >
+                      <div
+                        class="rounded me-4"
+                        style="width: 100px; height: 100px"
+                      >
+                        <img
+                          src="img/featur-3.jpg"
+                          class="img-fluid rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div>
+                        <h6 class="mb-2">Brocoli</h6>
+                        <div class="d-flex mb-2">
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star text-secondary"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                        <div class="d-flex mb-2">
+                          <h5 class="fw-bold me-2">S/0.99</h5>
+                          <h5 class="text-danger text-decoration-line-through">
+                            S/2.00
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center my-4">
+                      <a
+                        href="#"
+                        class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100"
+                        >Vew More</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="position-relative">
+                      <img
+                        src="img/Banner.jpg"
+                        class="img-fluid w-100 rounded"
+                        alt=""
+                      />
+                      <div
+                        class="position-absolute"
+                        style="
+                          top: 50%;
+                          right: 10px;
+                          transform: translateY(-50%);
+                        "
+                      >
+                        <h3 class="text-secondary fw-bold">
+                          Productos <br />
+                          De <br />
+                          Calidad
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <div class="row g-4 justify-content-center" id="contenedor-productos">
+                  <!-- Products will be dynamically inserted here -->
+                </div>
+                <div class="col-12">
+                  <div class="pagination d-flex justify-content-center mt-5">
+                    <a href="#" class="rounded">«</a>
+                    <a href="#" class="active rounded">1</a>
+                    <a href="#" class="rounded">2</a>
+                    <a href="#" class="rounded">3</a>
+                    <a href="#" class="rounded">4</a>
+                    <a href="#" class="rounded">5</a>
+                    <a href="#" class="rounded">6</a>
+                    <a href="#" class="rounded">»</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fruits Shop End -->
+
+    <!-- Back to Top -->
+    <a
+      href="#"
+      class="btn btn-primary border-3 border-primary rounded-circle back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a>
+
+    <div id="main-content11">
+      <!-- this is for footer -->
+      <!-- Footer End -->
+      <!-- Copyright End -->
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/footer.js"></script>
+
+    <!-- JavaScript for Search, Category Filter, and Cart -->
+    <script>
+      // Get usuario_id from localStorage
+      let usuario_id = localStorage.getItem('id_usuario');
+
+      // Debounce function to limit API calls
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // Function to fetch and update cart count
+      function updateCartCount() {
+        if (!usuario_id) {
+          document.getElementById('cart-count').textContent = '0';
+          return;
+        }
+        fetch(`http://localhost/minemarket/api/obtener_cantidad_carrito.php?usuario_id=${usuario_id}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.getElementById('cart-count').textContent = data.cantidad || '0';
+          })
+          .catch(error => {
+            console.error('Error fetching cart count:', error);
+            document.getElementById('cart-count').textContent = '0';
+          });
+      }
+
+      // Function to display products
+      function displayProducts(productos, containerId = 'contenedor-productos') {
+        const contenedor = document.getElementById(containerId);
+        contenedor.innerHTML = ''; // Clear existing products
+
+        if (productos.length === 0) {
+          contenedor.innerHTML = '<p class="text-center text-muted">No se encontraron productos.</p>';
+          return;
+        }
+
+        productos.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'col-md-6 col-lg-6 col-xl-4';
+          card.innerHTML = `
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <a href="shop-detail.html?product_id=${p.id}">
+                  <img src="${p.imagen_url}" class="img-fluid w-100 rounded-top" alt="${p.nombre}" />
+                </a>
+              </div>
+              <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px">
+                ${p.categoria_nombre}
+              </div>
+              <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                <h4>${p.nombre}</h4>
+                <p>${p.descripcion}</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">S/${parseFloat(p.precio).toFixed(2)}</p>
+                  <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart" data-id="${p.id}">
+                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Añadir al carrito
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+          contenedor.appendChild(card);
+        });
+
+        // Add event listeners for "Add to Cart" buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (!usuario_id) {
+              alert('Por favor, inicia sesión para añadir productos al carrito.');
+              window.location.href = 'Login.html';
+              return;
+            }
+            const productoId = parseInt(this.getAttribute('data-id'));
+
+            fetch('http://localhost/minemarket/api/agregar_carrito.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                usuario_id: usuario_id,
+                producto_id: productoId,
+                cantidad: 1
+              })
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data.success) {
+                  alert('Producto añadido al carrito');
+                  updateCartCount();
+                } else {
+                  alert('Error al agregar: ' + data.error);
+                }
+              })
+              .catch(err => {
+                console.error('Error de red:', err);
+                alert('Error de red al añadir al carrito.');
+              });
+          });
+        });
+      }
+
+      // Function to display search results in modal
+      function displaySearchResults(productos) {
+        displayProducts(productos, 'modal-search-results');
+      }
+
+      // Function to fetch and display categories
+      function loadCategories() {
+        fetch('http://localhost/minemarket/api/obtener_categorias.php')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(categorias => {
+            // Populate category list
+            const categoryList = document.getElementById('category-list');
+            categoryList.innerHTML = `
+              <li>
+                <div class="d-flex justify-content-between fruite-name">
+                  <a href="#" class="category-filter" data-category-id="all"><i class="fas fa-th-list me-2"></i>Todas las categorías</a>
+                  <span>(${categorias.length})</span>
+                </div>
+              </li>
+            `;
+            categorias.forEach(cat => {
+              const li = document.createElement('li');
+              li.innerHTML = `
+                <div class="d-flex justify-content-between fruite-name">
+                  <a href="#" class="category-filter" data-category-id="${cat.id}"><i class="fas fa-th-list me-2"></i>${cat.nombre}</a>
+                  <span>(0)</span> <!-- Update count dynamically if available -->
+                </div>
+              `;
+              categoryList.appendChild(li);
+            });
+
+            // Populate category dropdowns
+            const shopCategoryFilter = document.getElementById('shop-category-filter');
+            const modalCategoryFilter = document.getElementById('modal-category-filter');
+            categorias.forEach(cat => {
+              const option = document.createElement('option');
+              option.value = cat.id;
+              option.textContent = cat.nombre;
+              shopCategoryFilter.appendChild(option.cloneNode(true));
+              modalCategoryFilter.appendChild(option);
+            });
+
+            // Add event listeners for category filters
+            document.querySelectorAll('.category-filter').forEach(link => {
+              link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const categoryId = this.getAttribute('data-category-id');
+                document.querySelectorAll('.category-filter').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                loadProducts(categoryId);
+              });
+            });
+          })
+          .catch(error => {
+            console.error('Error fetching categories:', error);
+            document.getElementById('category-list').innerHTML = '<li><span class="text-danger">Error al cargar categorías</span></li>';
+          });
+      }
+
+      // Function to fetch and filter products
+      function loadProducts(categoryId = 'all', query = '') {
+        let url = 'http://localhost/minemarket/api/obtener_productos.php';
+        if (query) {
+          url = `http://localhost/minemarket/api/buscar_producto.php?nombre=${encodeURIComponent(query)}`;
+          if (categoryId !== 'all') {
+            url += `&categoria=${encodeURIComponent(categoryId)}`;
+          }
+        }
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              if (response.status === 404) {
+                throw new Error('Endpoint not found (404). Please check the server or file path.');
+              }
+              throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            let productos = query ? (data.success ? data.data : []) : data;
+            if (categoryId !== 'all' && !query) {
+              productos = productos.filter(p => p.categoria_id == categoryId);
+            }
+            displayProducts(productos);
+          })
+          .catch(error => {
+            console.error('Error fetching products:', error.message);
+            document.getElementById('contenedor-productos').innerHTML = `
+              <div class="col-12">
+                <p class="text-center text-danger">${error.message}</p>
+              </div>
+            `;
+          });
+      }
+
+      // Function to search products (for both shop and modal)
+      function searchProducts(query, category = '', isModal = false) {
+        let url = `http://localhost/minemarket/api/buscar_producto.php?nombre=${encodeURIComponent(query)}`;
+        if (category) {
+          url += `&categoria=${encodeURIComponent(category)}`;
+        }
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              if (response.status === 404) {
+                throw new Error('Endpoint not found (404). Please check the server or file path.');
+              }
+              throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            if (data.success) {
+              if (isModal) {
+                displaySearchResults(data.data);
+              } else {
+                displayProducts(data.data);
+              }
+            } else {
+              console.error('Error from server:', data.error);
+              const containerId = isModal ? 'modal-search-results' : 'contenedor-productos';
+              document.getElementById(containerId).innerHTML = `<p class="text-center text-danger">Error: ${data.error}</p>`;
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching search results:', error.message);
+            const containerId = isModal ? 'modal-search-results' : 'contenedor-productos';
+            document.getElementById(containerId).innerHTML = `<p class="text-center text-danger">${error.message}</p>`;
+          });
+      }
+
+      // Event listeners for search inputs
+      document.getElementById('shop-search-input').addEventListener('input', debounce(function (e) {
+        const query = e.target.value.trim();
+        const category = document.getElementById('shop-category-filter').value;
+        if (query.length > 2) {
+          searchProducts(query, category);
+        } else {
+          loadProducts(document.querySelector('.category-filter.active')?.getAttribute('data-category-id') || 'all');
+        }
+      }, 300));
+
+      document.getElementById('shop-search-icon').addEventListener('click', function () {
+        const query = document.getElementById('shop-search-input').value.trim();
+        const category = document.getElementById('shop-category-filter').value;
+        if (query.length > 2) {
+          searchProducts(query, category);
+        }
+      });
+
+      document.getElementById('modal-search-input').addEventListener('input', debounce(function (e) {
+        const query = e.target.value.trim();
+        const category = document.getElementById('modal-category-filter').value;
+        if (query.length > 2) {
+          searchProducts(query, category, true);
+        } else {
+          document.getElementById('modal-search-results').innerHTML = '';
+        }
+      }, 300));
+
+      document.getElementById('modal-search-icon').addEventListener('click', function () {
+        const query = document.getElementById('modal-search-input').value.trim();
+        const category = document.getElementById('modal-category-filter').value;
+        if (query.length > 2) {
+          searchProducts(query, category, true);
+        }
+      });
+
+      // Event listeners for category filters
+      document.getElementById('shop-category-filter').addEventListener('change', function () {
+        const query = document.getElementById('shop-search-input').value.trim();
+        const category = this.value;
+        if (query.length > 2) {
+          searchProducts(query, category);
+        } else {
+          loadProducts(category || 'all');
+        }
+      });
+
+      document.getElementById('modal-category-filter').addEventListener('change', function () {
+        const query = document.getElementById('modal-search-input').value.trim();
+        const category = this.value;
+        if (query.length > 2) {
+          searchProducts(query, category, true);
+        }
+      });
+
+      // Initialize on page load
+      document.addEventListener('DOMContentLoaded', () => {
+        loadCategories();
+        loadProducts();
+        updateCartCount();
+      });
+    </script>
+  </body>
+</html>
