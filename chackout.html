@@ -301,20 +301,30 @@
       // Manejar opciones de envío
       let costoEnvio = 8; // Costo de envío por defecto (recogida local)
       const manejarOpcionesEnvio = () => {
-        const checkboxes = document.querySelectorAll('input[name="Envio-1"]');
-        checkboxes.forEach(checkbox => {
-          checkbox.addEventListener('change', () => {
-            checkboxes.forEach(cb => cb.checked = cb === checkbox);
-            costoEnvio = checkbox.id === 'Envio-1' ? 0 : checkbox.id === 'Envio-2' ? 15 : 8;
-            const subtotal = parseFloat(
-              document.querySelector('#cart-items tr.subtotal-row td:last-child p')
-                .textContent.replace('S/ ', '')
-            );
-            actualizarTotales(subtotal, costoEnvio);
-          });
-        });
-      };
+      const checkboxes = document.querySelectorAll('input[name="Envio-1"]');
 
+      checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+      checkboxes.forEach(cb => cb.checked = cb === checkbox);
+
+      // Reemplazo del ternario anidado
+      if (checkbox.id === 'Envio-1') {
+        costoEnvio = 0;
+      } else if (checkbox.id === 'Envio-2') {
+        costoEnvio = 15;
+      } else {
+        costoEnvio = 8;
+      }
+
+      const subtotal = parseFloat(
+        document.querySelector('#cart-items tr.subtotal-row td:last-child p')
+          .textContent.replace('S/ ', '')
+      );
+
+      actualizarTotales(subtotal, costoEnvio);
+    });
+  });
+};
       // Cargar productos del carrito
       const cargarCarrito = async () => {
         try {
@@ -385,8 +395,8 @@
             </tr>
           `;
 
-          actualizarContadorCarrito();
-          manejarOpcionesEnvio();
+          const totalCantidad = productos.reduce((sum, item) => sum + item.cantidad, 0);
+          actualizarContadorCarrito(totalCantidad);
         } catch (error) {
           console.error('Error al cargar el carrito:', error);
           document.getElementById('cart-items').innerHTML = '<tr><td colspan="5" class="text-center text-danger">Error al cargar el carrito</td></tr>';
